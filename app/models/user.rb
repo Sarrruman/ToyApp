@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
 
   has_secure_password # mora se ukljuciti bcrypt gem
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
   # Pomocu BCrypt-a hesira parametar string
   def User.digest(string)

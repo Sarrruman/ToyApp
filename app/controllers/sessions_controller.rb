@@ -11,7 +11,8 @@ class SessionsController < ApplicationController
         #remember user # pomocu cooky-ja
         #pita da li je checkbox==1 i odlucuje da li da sacuva korisnika
         params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-        redirect_to user
+        logger.debug "SSSSSSSSSSSSSSSSSSSSSSSesija je: #{session[:forwarding_url]} !!!!!!!!!!!!!!!!!!!!!!!"
+        redirect_back_or user
       else
         flash.now[:danger] = 'Invalid email/password combination' # Not quite right!
         render 'new'
